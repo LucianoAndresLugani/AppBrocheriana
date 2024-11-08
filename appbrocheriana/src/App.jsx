@@ -153,6 +153,8 @@ function Home(){
     <h1>Misiones</h1>
     <h3>TUTORIALES</h3>
     
+    
+    <Boton texto={'CUIDADO DEL AGUA'}lugar="Movida" donde={'Movida'}></Boton>
     <Boton texto={'ECOBOTELLAS'}lugar="Movida2" donde={'Movida2'}></Boton>
     <Boton texto={'ECOBOTELLAS VIDEO'} lugar="Movida8" donde={'Movida8'}></Boton>
     <Boton texto={'COMPOSTAJE'} lugar="Movida3" donde={'Movida3'}></Boton>
