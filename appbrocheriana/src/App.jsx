@@ -17,7 +17,13 @@ import Ecobotella2 from '../src/assets/ecobotellas2.png';
 import Ecobotella3 from '../src/assets/ecobotellas3.png';
 import economia1 from '../src/assets/eco.jpg';
 import economia2 from '../src/assets/eco2.jpg';
+import economia3 from '../src/assets/eco3.jpg';
 import plasticos from '../src/assets/Plasticos.mp4';
+import modacirucular from '../src/assets/MODACIRCULAR.mp4';
+import ecobotellas from '../src/assets/ecobotellas.mp4';
+import aireacondicionado from '../src/assets/aireacondicionado.mp4';
+import ahorraEnergia from '../src/assets/ahorraEnergia.mp4';
+
 
 
 const Alert = ({ message, onClose }) => {
@@ -80,7 +86,7 @@ function Carousell2({img1, img2, img3}) {
     </div>
   );
 }
-function Carousell3({img1, img2, img3}) {
+function Carousell3({img1, img2, img3, video}) {
   return (
     <div style={{ maxWidth: '600px', margin: 'auto', paddingBottom:'5%'}}>
       <Carousel fade>
@@ -94,6 +100,16 @@ function Carousell3({img1, img2, img3}) {
           <Carousel.Caption>
           </Carousel.Caption>
         </Carousel.Item>
+        <Carousel.Item>
+          <img src={img3} className="d-block w-100" alt="Third slide" />
+          <Carousel.Caption>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <iframe src={video} className="d-block w-100" alt="Four slide"></iframe>
+          <Carousel.Caption>
+          </Carousel.Caption>
+        </Carousel.Item>
       </Carousel>
     </div>
   );
@@ -103,7 +119,7 @@ function Navbarr() {
     <Navbar expand="lg" sticky="top" className=" movida navbar navbar-expand-lg bg-body-tertiary ">
       <Container>
       <Navbar.Brand className='icono'>
-      <img alt="logo" src={logo} width="60" height="60" className="logo align-top"/><Link className='logo' to="/" href='Home'>Alicación Bocheriana</Link>
+      <img alt="logo" src={logo} width="60" height="60" className="logo align-top"/><Link className='logo' to="/" href='Home'>Aplicación Bocheriana</Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -138,8 +154,12 @@ function Home(){
     <h3>TUTORIALES</h3>
     <Boton texto={'REDUCIR CONSUMO DE AGUA'} lugar="Movida" donde={'Movida'}></Boton>
     <Boton texto={'ECOBOTELLAS'}lugar="Movida2" donde={'Movida2'}></Boton>
-    <Boton texto={'ECONOMIA CIRCULAR'} lugar="Movida3" donde={'Movida3'}></Boton>
+    <Boton texto={'COMPOSTAJE'} lugar="Movida3" donde={'Movida3'}></Boton>
     <Boton texto={'PLASTICOS DE UN SOLO USO'} lugar="Movida4" donde={'Movida4'}></Boton>
+    <Boton texto={'MODA CIRCULAR'} lugar="Movida5" donde={'Movida5'}></Boton>
+    <Boton texto={'CUIDADOS DEL AIRE ACONDICIONADO'} lugar="Movida6" donde={'Movida6'}></Boton>
+    <Boton texto={'CUIDADOS LA DE ENERGIA'} lugar="Movida7" donde={'Movida7'}></Boton>
+    
   </div>
   )
 }
@@ -234,8 +254,8 @@ function Movida3() {
 
   return (
     <div className='orden'>
-      <h1>Tercera misión: Economía circular</h1>
-      <Carousell3 img1={economia1} img2={economia2} />
+      <h1>Tercera misión: Compostaje</h1>
+      <Carousell2 img1={economia1} img2={economia2} img3={economia3} video={ecobotellas}/>
       <Button className="boton" variant="dark" onClick={handleAlert}>Enviar!</Button>
       <Link to='/' href='Home'>
         <Button className='volver' variant="dark">Volver a las misiones</Button>
@@ -262,7 +282,7 @@ function Movida4() {
   return (
     <div className='orden'>
       <h1>Cuarta misión: Plásticos</h1>
-      <video src={plasticos} autoPlay loop></video>
+      <video src={plasticos} height={200} autoPlay loop></video>
       <Button className="boton" variant="dark" onClick={handleAlert}>Enviar!</Button>
       <Link to='/' href='Home'>
         <Button className='volver' variant="dark">Volver a las misiones</Button>
@@ -277,6 +297,95 @@ function Movida4() {
     </div>
   );
 }
+
+
+function Movida5() {
+  const [showAlert, setShowAlert] = useState(false);
+
+  const handleAlert = () => {
+    setShowAlert(true); 
+    setTimeout(() => setShowAlert(false), 3000); 
+  };
+
+  return (
+    <div className='orden'>
+      <h1>Quinta misión: Moda Circular</h1>
+      <video src={modacirucular} height={200} autoPlay loop></video>
+      <Button className="boton" variant="dark" onClick={handleAlert}>Enviar!</Button>
+      <Link to='/' href='Home'>
+        <Button className='volver' variant="dark">Volver a las misiones</Button>
+      </Link>
+
+      {showAlert && (
+        <Alert 
+          message="Misión cumplida, gracias por informarte acerca de los daños que produce el plástico" 
+          onClose={() => setShowAlert(false)} 
+        />
+      )}
+    </div>
+  );
+}
+
+
+
+
+function Movida6() {
+  const [showAlert, setShowAlert] = useState(false);
+
+  const handleAlert = () => {
+    setShowAlert(true); 
+    setTimeout(() => setShowAlert(false), 3000); 
+  };
+
+  return (
+    <div className='orden'>
+      <h1>Sexta misión: Cuidados Aire Acondicionados</h1>
+      <video src={aireacondicionado} height={410} autoPlay loop></video>
+      <Button className="boton" variant="dark" onClick={handleAlert}>Enviar!</Button>
+      <Link to='/' href='Home'>
+        <Button className='volver' variant="dark">Volver a las misiones</Button>
+      </Link>
+
+      {showAlert && (
+        <Alert 
+          message="Misión cumplida, gracias por informarte acerca de los daños que produce el plástico" 
+          onClose={() => setShowAlert(false)} 
+        />
+      )}
+    </div>
+  );
+}
+
+
+function Movida7() {
+  const [showAlert, setShowAlert] = useState(false);
+
+  const handleAlert = () => {
+    setShowAlert(true); 
+    setTimeout(() => setShowAlert(false), 3000); 
+  };
+
+  return (
+    <div className='orden'>
+      <h1>Septima misión: Cuidados de la energia</h1>
+      <video src={ahorraEnergia}height={200} autoPlay loop></video>
+      <Button className="boton" variant="dark" onClick={handleAlert}>Enviar!</Button>
+      <Link to='/' href='Home'>
+        <Button className='volver' variant="dark">Volver a las misiones</Button>
+      </Link>
+
+      {showAlert && (
+        <Alert 
+          message="Misión cumplida, gracias por informarte acerca de los daños que produce el plástico" 
+          onClose={() => setShowAlert(false)} 
+        />
+      )}
+    </div>
+  );
+}
+
+
+
 
 
 function Sesion(){
@@ -307,6 +416,12 @@ function App() {
         <Route path='Movida2' element={<Movida2/>}/>
         <Route path='Movida3' element={<Movida3/>}/>
         <Route path='Movida4' element={<Movida4/>}/>
+       
+        <Route path='Movida5' element={<Movida5/>}/>
+        <Route path='Movida6' element={<Movida6/>}/>
+        <Route path='Movida7' element={<Movida7/>}/>
+        
+        
         <Route path='Sesion' element={<Sesion/>}/>
       </Routes>
     </>
