@@ -40,7 +40,7 @@ function Carousell() {
     <div style={{ maxWidth: '600px', margin: 'auto', paddingBottom:'5%'}}>
       <Carousel fade>
         <Carousel.Item>
-          <img src={foto4} className="d-block w-100" alt="First slide" />
+          <img src={foto4} height='auto' width='auto' className="d-block w-100" alt="First slide" />
           <Carousel.Caption>
           </Carousel.Caption>
         </Carousel.Item>
@@ -152,7 +152,7 @@ function Home(){
     </div>
     <h1>Misiones</h1>
     <h3>TUTORIALES</h3>
-    <Boton texto={'REDUCIR CONSUMO DE AGUA'} lugar="Movida" donde={'Movida'}></Boton>
+    
     <Boton texto={'ECOBOTELLAS'}lugar="Movida2" donde={'Movida2'}></Boton>
     <Boton texto={'COMPOSTAJE'} lugar="Movida3" donde={'Movida3'}></Boton>
     <Boton texto={'PLASTICOS DE UN SOLO USO'} lugar="Movida4" donde={'Movida4'}></Boton>
