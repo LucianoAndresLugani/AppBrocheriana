@@ -154,6 +154,7 @@ function Home(){
     <h3>TUTORIALES</h3>
     
     <Boton texto={'ECOBOTELLAS'}lugar="Movida2" donde={'Movida2'}></Boton>
+    <Boton texto={'ECOBOTELLAS VIDEO'} lugar="Movida8" donde={'Movida8'}></Boton>
     <Boton texto={'COMPOSTAJE'} lugar="Movida3" donde={'Movida3'}></Boton>
     <Boton texto={'PLASTICOS DE UN SOLO USO'} lugar="Movida4" donde={'Movida4'}></Boton>
     <Boton texto={'MODA CIRCULAR'} lugar="Movida5" donde={'Movida5'}></Boton>
@@ -386,6 +387,32 @@ function Movida7() {
 
 
 
+function Movida8() {
+  const [showAlert, setShowAlert] = useState(false);
+
+  const handleAlert = () => {
+    setShowAlert(true); 
+    setTimeout(() => setShowAlert(false), 3000); 
+  };
+
+  return (
+    <div className='orden'>
+      <h1>Octava misión: Ecobotellas</h1>
+      <video src={ecobotellas}height={200} autoPlay loop></video>
+      <Button className="boton" variant="dark" onClick={handleAlert}>Enviar!</Button>
+      <Link to='/' href='Home'>
+        <Button className='volver' variant="dark">Volver a las misiones</Button>
+      </Link>
+
+      {showAlert && (
+        <Alert 
+          message="Misión cumplida, gracias por informarte acerca de los daños que produce el plástico" 
+          onClose={() => setShowAlert(false)} 
+        />
+      )}
+    </div>
+  );
+}
 
 
 function Sesion(){
@@ -420,7 +447,7 @@ function App() {
         <Route path='Movida5' element={<Movida5/>}/>
         <Route path='Movida6' element={<Movida6/>}/>
         <Route path='Movida7' element={<Movida7/>}/>
-        
+        <Route path='Movida8' element={<Movida8/>}/>
         
         <Route path='Sesion' element={<Sesion/>}/>
       </Routes>
